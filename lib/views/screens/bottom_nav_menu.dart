@@ -132,7 +132,7 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
   }
 
   final TextStyle unselectedLabelStyle = TextStyle(
-      color: Colors.white.withOpacity(0.5),
+      color: whiteColor,
       fontWeight: FontWeight.w500,
       fontSize: 10.sp);
 
@@ -145,8 +145,8 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
           showSelectedLabels: true,
           onTap: bottomNavController.changeTabIndex,
           currentIndex: bottomNavController.tabIndex.value,
-          backgroundColor: whiteColor,
-          unselectedItemColor: Colors.black54,
+         backgroundColor: primaryColor,
+          unselectedItemColor: whiteColor,
           selectedItemColor: secondaryColor,
           unselectedLabelStyle: unselectedLabelStyle,
           selectedLabelStyle: selectedLabelStyle,
@@ -157,7 +157,7 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
                 size: 18.sp,
               ),
               label: 'matches'.tr,
-              backgroundColor: primaryColor,
+             // backgroundColor: primaryColor,
             ),
             BottomNavigationBarItem(
               icon: Icon(
@@ -165,7 +165,7 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
                 size: 18.sp,
               ),
               label: 'live'.tr,
-              backgroundColor: primaryColor,
+              //backgroundColor: primaryColor,
             ),
             BottomNavigationBarItem(
               icon: Icon(
@@ -173,7 +173,7 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
                 size: 18.sp,
               ),
               label: 'settings'.tr,
-              backgroundColor: primaryColor,
+             // backgroundColor: primaryColor,
             ),
           ],
         ));

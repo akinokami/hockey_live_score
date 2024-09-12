@@ -16,11 +16,13 @@ class ChangeLanguageScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final languageController = Get.put(LanguageController());
     return Scaffold(
+      backgroundColor: primaryColor,
       appBar: AppBar(
+        backgroundColor: primaryColor,
         elevation: 0,
         centerTitle: true,
-        backgroundColor: Colors.white,
-        iconTheme: const IconThemeData(color: Colors.black),
+
+        iconTheme: const IconThemeData(color: Colors.white),
         title: CustomText(
           text: 'change_language'.tr,
           fontSize: 15.sp,

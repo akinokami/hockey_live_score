@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hockey_live_score/utils/color_const.dart';
 import 'package:hockey_live_score/views/screens/settings/change_language.dart';
 import 'package:get/get.dart';
 
@@ -13,9 +14,11 @@ class SettingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: primaryColor,
         appBar: AppBar(
+          backgroundColor: primaryColor,
           elevation: 0,
-          backgroundColor: Colors.white,
+
           centerTitle: true,
           title: CustomText(
             text: 'settings'.tr,
@@ -42,6 +45,7 @@ class SettingScreen extends StatelessWidget {
                           Icon(
                             Icons.language,
                             size: 18.sp,
+                            color: secondaryColor,
                           ),
                           SizedBox(
                             width: 10.w,
@@ -58,6 +62,7 @@ class SettingScreen extends StatelessWidget {
                           Icon(
                             Icons.arrow_forward_ios,
                             size: 18.sp,
+                            color: secondaryColor,
                           ),
                         ],
                       ),
@@ -93,6 +98,7 @@ class SettingScreen extends StatelessWidget {
                           Icon(
                             Icons.policy_outlined,
                             size: 18.sp,
+                            color: secondaryColor,
                           ),
                           SizedBox(
                             width: 10.w,
@@ -103,6 +109,7 @@ class SettingScreen extends StatelessWidget {
                       Icon(
                         Icons.arrow_forward_ios,
                         size: 18.sp,
+                        color: secondaryColor,
                       ),
                     ],
                   ),
@@ -117,6 +124,7 @@ class SettingScreen extends StatelessWidget {
                         Icon(
                           Icons.info_outline_rounded,
                           size: 18.sp,
+                          color: secondaryColor,
                         ),
                         SizedBox(
                           width: 10.w,

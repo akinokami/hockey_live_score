@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import '../../../utils/color_const.dart';
 import '../../../utils/enum.dart';
 import '../../../utils/global.dart';
 import '../../widgets/custom_text.dart';
@@ -31,11 +32,13 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      backgroundColor: primaryColor,
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        backgroundColor: Colors.white,
-        iconTheme: const IconThemeData(color: Colors.black),
+        backgroundColor: primaryColor,
+        iconTheme: const IconThemeData(color: Colors.white),
         title: CustomText(
           text: '',
           fontSize: 15.sp,

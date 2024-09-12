@@ -18,7 +18,9 @@ class MatchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final matchController = Get.put(MatchController());
     return Scaffold(
+      backgroundColor: primaryColor,
       appBar: AppBar(
+        backgroundColor: primaryColor,
         elevation: 0,
         centerTitle: false,
         title: Obx(
@@ -80,6 +82,7 @@ class MatchScreen extends StatelessWidget {
                             Row(
                               children: [
                                 Icon(
+                                  color: secondaryColor,
                                   Icons.sports_hockey,
                                   size: 18.sp,
                                 ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hockey_live_score/utils/color_const.dart';
 
 class CustomText extends StatelessWidget {
   final String? text;
@@ -27,7 +28,7 @@ class CustomText extends StatelessWidget {
         maxLines: maxLines ?? 1,
         style: TextStyle(
             fontFamily: fontFamily,
-            color: color ?? Colors.black,
+            color: color ?? whiteColor,
             fontSize: fontSize ?? 12.sp,
             overflow:
                 isEllip == false ? TextOverflow.visible : TextOverflow.ellipsis,

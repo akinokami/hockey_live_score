@@ -14,10 +14,11 @@ class LiveScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: primaryColor,
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: primaryColor,
         title: CustomText(
           text: 'matches'.tr,
           fontSize: 15.sp,
@@ -36,6 +37,7 @@ class LiveScreen extends StatelessWidget {
                       Icon(
                         Icons.sports_hockey,
                         size: 18.sp,
+                        color: secondaryColor,
                       ),
                       SizedBox(
                         width: 10.w,

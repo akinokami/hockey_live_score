@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hockey_live_score/utils/color_const.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard({
@@ -25,7 +26,7 @@ class CustomCard extends StatelessWidget {
       width: width ?? double.infinity,
       padding: EdgeInsets.all(10.w),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: cardColor,
         borderRadius: BorderRadius.circular(5.r),
         boxShadow: [
           BoxShadow(

@@ -12,6 +12,8 @@ class ViLanguage {
     'general': 'Tổng quan',
     'other': 'Khác',
     'score': 'Điểm số',
+    'matches': 'Trận đấu',
     'please_wait': 'Vui lòng đợi',
+    'no_data': 'Không có dữ liệu',
   };
 }
