@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hockey_live_score/utils/enum.dart';
-import 'package:hockey_live_score/views/screens/score/score_screen.dart';
+import 'package:hockey_live_score/views/screens/live/live_screen.dart';
+import 'package:hockey_live_score/views/screens/match/match_screen.dart';
 import 'package:hockey_live_score/views/screens/settings/setting_screen.dart';
 import 'package:hockey_live_score/views/widgets/custom_text.dart';
 import 'package:get/get.dart';
@@ -152,10 +153,18 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
           items: [
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.scoreboard_outlined,
+                Icons.sports_hockey,
                 size: 18.sp,
               ),
-              label: 'score'.tr,
+              label: 'matches'.tr,
+              backgroundColor: primaryColor,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.live_tv,
+                size: 18.sp,
+              ),
+              label: 'live'.tr,
               backgroundColor: primaryColor,
             ),
             BottomNavigationBarItem(
@@ -181,7 +190,8 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
       body: Obx(() => IndexedStack(
             index: bottomNavController.tabIndex.value,
             children: const [
-              PlayScreen(),
+              MatchScreen(),
+              LiveScreen(),
               SettingScreen(),
             ],
           )),
