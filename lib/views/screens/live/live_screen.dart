@@ -42,13 +42,13 @@ class LiveScreen extends StatelessWidget {
                       SizedBox(
                         width: 10.w,
                       ),
-                      CustomText(text: 'KHL')
+                      const CustomText(text: 'KHL')
                     ],
                   ),
                   kSizedBoxH5,
                   Divider(height: 1.h, color: grey.withOpacity(0.3)),
                   kSizedBoxH5,
-                  MatchCard(),
+                  const MatchCard(),
                 ],
               ),
             ),

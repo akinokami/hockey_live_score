@@ -71,7 +71,7 @@ class TeamScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Expanded(
+            const Expanded(
               child: TabBarView(
                 children: [UpcomingWidget(), ResultWidget()],
               ),

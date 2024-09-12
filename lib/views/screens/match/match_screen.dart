@@ -64,7 +64,7 @@ class MatchScreen extends StatelessWidget {
       ),
       body: Obx(
         () => matchController.isLoading.value
-            ? Center(
+            ? const Center(
                 child: CustomLoading(),
               )
             : Padding(
@@ -73,7 +73,6 @@ class MatchScreen extends StatelessWidget {
                   children: [
                     InkWell(
                       onTap: () {
-                        //
                         Get.to(() => const TeamScreen());
                       },
                       child: CustomCard(
@@ -89,13 +88,13 @@ class MatchScreen extends StatelessWidget {
                                 SizedBox(
                                   width: 10.w,
                                 ),
-                                CustomText(text: 'KHL')
+                                const CustomText(text: 'KHL')
                               ],
                             ),
                             kSizedBoxH5,
                             Divider(height: 1.h, color: grey.withOpacity(0.3)),
                             kSizedBoxH5,
-                            MatchCard(),
+                            const MatchCard(),
                           ],
                         ),
                       ),

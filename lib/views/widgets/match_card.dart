@@ -38,7 +38,7 @@ class MatchCard extends StatelessWidget {
                     SizedBox(
                       width: 10.w,
                     ),
-                    CustomText(text: 'Home Team')
+                    const CustomText(text: 'Home Team')
                   ],
                 ),
                 Row(
@@ -51,7 +51,7 @@ class MatchCard extends StatelessWidget {
                     SizedBox(
                       width: 10.w,
                     ),
-                    CustomText(text: 'Away Team')
+                    const CustomText(text: 'Away Team')
                   ],
                 ),
               ],
