@@ -1,24 +1,28 @@
+import 'package:hockey_live_score/models/match_model.dart';
+import 'package:hockey_live_score/services/api_constant.dart';
 import 'package:hockey_live_score/services/api_utils.dart';
+
+import '../utils/custom_exception.dart';
 
 class ApiRepo {
   final ApiUtils apiUtils = ApiUtils();
 
-  /// Movie
-  // Future<List<SliderModel>> getMovieSlider() async {
-  //   try {
-  //     final response = await apiUtils
-  //         .get(url: "${ApiConstant.display}SliderItem", queryParameters: {
-  //       "\$filter":
-  //           "displayLocation eq 'movies'  and deletedAt eq null and status eq true",
-  //       "\$select":
-  //           "name,bannerType,htmlCode,webLink,displayLocation,imageUrl,status,titleId"
-  //     });
-  //     final movieSliderList = response.data['value'] as List;
-  //     return movieSliderList.map((item) => SliderModel.fromJson(item)).toList();
-  //   } catch (e) {
-  //     throw CustomException(e.toString());
-  //   }
-  // }
+  /// Matches
+  Future<List<MatchModel>> getMatches() async {
+    try {
+      final response = await apiUtils.get(
+          url:
+              "${ApiConstant.baseUrl}en/matches/ice_hockey/from/2024-09-11T04:00:00/to/2024-09-12T03:59:59",
+          queryParameters: {
+            "oddsPresentationConfigsId": "BETWAY_AFRICA_APP_PLAIN_1X2_V2",
+            "oddsProviderIds": 11
+          });
+      final matches = response.data['matches'] as List;
+      return matches.map((item) => MatchModel.fromJson(item)).toList();
+    } catch (e) {
+      throw CustomException(e.toString());
+    }
+  }
 
   // Future<List<MovieBuilderModel>> getMovieBuilderList() async {
   //   try {
