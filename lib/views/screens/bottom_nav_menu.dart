@@ -87,10 +87,13 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
                                     });
                                   },
                                 ),
-                                CustomText(
-                                  text: 'agree'.tr,
-                                  color: secondaryColor,
-                                  fontSize: 12,
+                                Expanded(
+                                  child: CustomText(
+                                    text: 'agree'.tr,
+                                    color: secondaryColor,
+                                    fontSize: 11.sp,
+                                    maxLines: 2,
+                                  ),
                                 ),
                               ],
                             ),

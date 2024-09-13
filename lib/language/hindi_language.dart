@@ -15,5 +15,6 @@ class HiLanguage {
     'matches': 'मैच',
     'please_wait': 'कृपया प्रतीक्षा करें',
     'no_data': 'कोई डेटा उपलब्ध नहीं है',
+    'live': 'लाइव',
   };
 }

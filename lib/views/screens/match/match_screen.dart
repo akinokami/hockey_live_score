@@ -67,41 +67,84 @@ class MatchScreen extends StatelessWidget {
             ? const Center(
                 child: CustomLoading(),
               )
-            : Padding(
-                padding: EdgeInsets.all(5.w),
-                child: Column(
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Get.to(() => const TeamScreen());
-                      },
-                      child: CustomCard(
-                        widget: Column(
-                          children: [
-                            Row(
+            : matchController.matches.isEmpty
+                ? Center(
+                    child: CustomText(text: 'no_data'.tr),
+                  )
+                : Padding(
+                    padding: EdgeInsets.all(5.w),
+                    child: ListView.builder(
+                        itemCount: matchController.matches.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: EdgeInsets.all(8.w),
+                            child: ExpansionTile(
+                              initiallyExpanded: index==0?true:false,
+                              backgroundColor: cardColor,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.r)),
+                              collapsedBackgroundColor: cardColor,
+                              collapsedShape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.r)),
+                              childrenPadding: EdgeInsets.all(10.w),
+                              iconColor: whiteColor,
+                              collapsedIconColor: whiteColor,
+                              leading: Icon(
+                                Icons.sports_hockey_outlined,
+                                size: 18.sp,
+                                color: whiteColor,
+                              ),
+                              title: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Expanded(
+                                    child: CustomText(
+                                      text:
+                                          "${matchController.matches[index].cName} - ${matchController.matches[index].stName}",
+                                      maxLines: 2,
+                                    ),
+                                  ),
+                                  CustomText(
+                                      text:
+                                          "${matchController.matches[index].matches?.length}"),
+                                ],
+                              ),
                               children: [
-                                Icon(
-                                  color: secondaryColor,
-                                  Icons.sports_hockey,
-                                  size: 18.sp,
-                                ),
-                                SizedBox(
-                                  width: 10.w,
-                                ),
-                                const CustomText(text: 'KHL')
+                                ListView.builder(
+                                    shrinkWrap: true,
+                                    itemCount: matchController
+                                        .matches[index].matches?.length,
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    itemBuilder: (context, index1) {
+                                      return Column(
+                                        children: [
+                                          kSizedBoxH5,
+                                          MatchCard(
+                                            matches: matchController
+                                                .matches[index]
+                                                .matches?[index1],
+                                          ),
+                                          kSizedBoxH5,
+                                          Visibility(
+                                            visible: index1 !=
+                                                (matchController.matches[index]
+                                                            .matches?.length ??
+                                                        1) -
+                                                    1,
+                                            child: Divider(
+                                                height: 1.h,
+                                                color: grey.withOpacity(0.3)),
+                                          ),
+                                        ],
+                                      );
+                                    })
                               ],
                             ),
-                            kSizedBoxH5,
-                            Divider(height: 1.h, color: grey.withOpacity(0.3)),
-                            kSizedBoxH5,
-                            const MatchCard(),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+                          );
+                        }),
+                  ),
       ),
     );
   }

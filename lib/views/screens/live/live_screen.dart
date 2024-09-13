@@ -20,7 +20,7 @@ class LiveScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: primaryColor,
         title: CustomText(
-          text: 'matches'.tr,
+          text: 'live'.tr,
           fontSize: 15.sp,
           fontWeight: FontWeight.w500,
         ),

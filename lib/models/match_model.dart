@@ -170,10 +170,10 @@ class Matches {
     elapsedT = json['elapsed_t'];
     start = json['start'];
     cov = json['cov'];
-    score = json['score'].cast<int>();
-    l1pScore = json['1p_score'].cast<int>();
-    l2pScore = json['2p_score'].cast<int>();
-    l3pScore = json['3p_score'].cast<int>();
+    score =json['score']==null?[]: json['score'].cast<int>();
+    l1pScore = json['1p_score']==null?[]:json['1p_score'].cast<int>();
+    l2pScore =json['2p_score']==null?[]: json['2p_score'].cast<int>();
+    l3pScore =json['3p_score']==null?[]: json['3p_score'].cast<int>();
     highlighted = json['highlighted'];
     canEndWithDraw = json['can_end_with_draw'];
     season = json['season'];
