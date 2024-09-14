@@ -21,9 +21,7 @@ class SplashScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            FlutterLogo(
-              size: 80.h,
-            ),
+            Image.asset("assets/images/launcher.webp", width: 0.5.sw),
             kSizedBoxH30,
             kSizedBoxH30,
             const CustomLoading()
