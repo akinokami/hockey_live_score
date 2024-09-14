@@ -16,19 +16,22 @@ class MatchController extends GetxController {
   @override
   void onInit() {
     date.value = formatDate(DateTime.now());
+    print("Date onInit: ${date.value}");
     getMatches();
     super.onInit();
   }
 
   void setDate(DateTime pickedDate) {
     date.value = formatDate(pickedDate);
+
+    print("Date : ${date.value}");
     getMatches();
   }
 
   Future<void> getMatches() async {
     isLoading.value = true;
     try {
-      final result = await ApiRepo().getMatches();
+      final result = await ApiRepo().getMatches(date.value);
       matches.value = result;
     } catch (e) {
       constants.showSnackBar(title: 'Error', msg: e.toString(), textColor: red);

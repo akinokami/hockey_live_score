@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:hockey_live_score/models/match_model.dart';
+import 'package:hockey_live_score/views/screens/match/match_detail_screen.dart';
 import 'package:hockey_live_score/views/widgets/custom_text.dart';
 
 import '../../utils/color_const.dart';
 
 class MatchCard extends StatelessWidget {
   const MatchCard({
-    super.key, this.matches,
+    super.key, this.matches, this.title,
   });
 final Matches? matches;
-
+final String? title;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ final Matches? matches;
     var formattedTime="$formatTime1$formatTime2:$formatTime3$formatTime4";
     return InkWell(
       onTap: () {
-        //
+Get.to(MatchDetailScreen(matchTitle: title??"",));
       },
       child: Row(
         children: [
@@ -34,29 +36,41 @@ final Matches? matches;
             child: Column(
               children: [
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(
-                      Icons.sports_hockey,
-                      size: 18.sp,
-                      color: secondaryColor,
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.sports_hockey,
+                          size: 18.sp,
+                          color: secondaryColor,
+                        ),
+                        SizedBox(
+                          width: 10.w,
+                        ),
+                         CustomText(text: '${matches?.teams?[0].name}'),
+                      ],
                     ),
-                    SizedBox(
-                      width: 10.w,
-                    ),
-                     CustomText(text: '${matches?.teams?[0].name}'),
+                    CustomText(text: matches?.status==1?  '-':"${matches?.score?[0].toString()}"),
                   ],
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(
-                      Icons.sports_hockey,
-                      size: 18.sp,
-                      color: secondaryColor,
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.sports_hockey,
+                          size: 18.sp,
+                          color: secondaryColor,
+                        ),
+                        SizedBox(
+                          width: 10.w,
+                        ),
+                         CustomText(text: '${matches?.teams?[1].name}')
+                      ],
                     ),
-                    SizedBox(
-                      width: 10.w,
-                    ),
-                     CustomText(text: '${matches?.teams?[1].name}')
+                    CustomText(text: matches?.status==1?  '-':"${matches?.score?[1].toString()}"),
                   ],
                 ),
               ],

@@ -89,11 +89,11 @@ class MatchScreen extends StatelessWidget {
                               childrenPadding: EdgeInsets.all(10.w),
                               iconColor: whiteColor,
                               collapsedIconColor: whiteColor,
-                              leading: Icon(
-                                Icons.sports_hockey_outlined,
-                                size: 18.sp,
-                                color: whiteColor,
-                              ),
+                              // leading: Icon(
+                              //   Icons.sports_hockey_outlined,
+                              //   size: 18.sp,
+                              //   color: whiteColor,
+                              // ),
                               title: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -122,6 +122,7 @@ class MatchScreen extends StatelessWidget {
                                         children: [
                                           kSizedBoxH5,
                                           MatchCard(
+                                            title:"${matchController.matches[index].cName} - ${matchController.matches[index].stName}",
                                             matches: matchController
                                                 .matches[index]
                                                 .matches?[index1],
