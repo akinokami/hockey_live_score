@@ -1,5 +1,7 @@
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:hockey_live_score/models/match_detail_model.dart';
 import 'package:hockey_live_score/models/match_model.dart';
+import 'package:hockey_live_score/models/team_model.dart';
 import 'package:hockey_live_score/services/api_constant.dart';
 import 'package:hockey_live_score/services/api_utils.dart';
 import 'package:intl/intl.dart';
@@ -32,11 +34,9 @@ class ApiRepo {
 
   /// Matches Detail
   Future<MatchDetailsModel> getMatchesDetail(String id) async {
-
     try {
       final response = await apiUtils.get(
-          url:
-          "${ApiConstant.baseUrl}v1/en/match/ice_hockey/full/$id",
+          url: "${ApiConstant.baseUrl}v1/en/match/ice_hockey/full/$id",
           queryParameters: {
             "oddsPresentationConfigsId": "BETWAY_AFRICA_APP_PLAIN_1X2_V2",
             "oddsProviderIds": 11,
@@ -52,12 +52,41 @@ class ApiRepo {
           });
       final matchDetail = response.data;
       return MatchDetailsModel.fromJson(matchDetail);
-
     } catch (e) {
       throw CustomException(e.toString());
     }
-
   }
 
+  ///Team
+  Future<TeamModel> getTeam(String tId) async {
+    try {
+      final response = await apiUtils.get(
+          url: "${ApiConstant.baseUrl}v1/en/team/ice_hockey/teampage/$tId",
+          queryParameters: {
+            "oddsPresentationConfigsId": "BETWAY_AFRICA_APP_PLAIN_1X2_V2",
+            "oddsProviderIds": 11,
+            "epstats": 1
+          });
+      final team = response.data;
+      return TeamModel.fromJson(team);
+    } catch (e) {
+      throw CustomException(e.toString());
+    }
+  }
 
+  /// Live
+  Future<List<MatchModel>> getLive() async {
+    try {
+      final response = await apiUtils.get(
+          url: "${ApiConstant.baseUrl}v1/en/matches/ice_hockey/live",
+          queryParameters: {
+            "oddsPresentationConfigsId": "BETWAY_AFRICA_APP_PLAIN_1X2_V2",
+            "oddsProviderIds": 11
+          });
+      final matches = response.data['matches'] as List;
+      return matches.map((item) => MatchModel.fromJson(item)).toList();
+    } catch (e) {
+      throw CustomException(e.toString());
+    }
+  }
 }
