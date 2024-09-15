@@ -31,17 +31,17 @@ class MatchScreen extends StatelessWidget {
           ),
         ),
         actions: [
-          IconButton(
-            onPressed: () async {
-              // Get.to(() => const SearchScreen(), arguments: {
-              //   'matches': matchController.matches,
-              // });
-            },
-            icon: Icon(
-              Icons.search,
-              color: secondaryColor,
-            ),
-          ),
+          // IconButton(
+          //   onPressed: () async {
+          //     // Get.to(() => const SearchScreen(), arguments: {
+          //     //   'matches': matchController.matches,
+          //     // });
+          //   },
+          //   icon: Icon(
+          //     Icons.search,
+          //     color: secondaryColor,
+          //   ),
+          // ),
           IconButton(
             onPressed: () async {
               DateTime? picked = await showDatePicker(
@@ -79,7 +79,7 @@ class MatchScreen extends StatelessWidget {
                           return Padding(
                             padding: EdgeInsets.all(8.w),
                             child: ExpansionTile(
-                              initiallyExpanded: index==0?true:false,
+                              initiallyExpanded: index == 0 ? true : false,
                               backgroundColor: cardColor,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.r)),
@@ -122,7 +122,8 @@ class MatchScreen extends StatelessWidget {
                                         children: [
                                           kSizedBoxH5,
                                           MatchCard(
-                                            title:"${matchController.matches[index].cName} - ${matchController.matches[index].stName}",
+                                            title:
+                                                "${matchController.matches[index].cName} - ${matchController.matches[index].stName}",
                                             matches: matchController
                                                 .matches[index]
                                                 .matches?[index1],

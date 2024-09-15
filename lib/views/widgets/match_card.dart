@@ -9,19 +9,21 @@ import '../../utils/color_const.dart';
 
 class MatchCard extends StatelessWidget {
   const MatchCard({
-    super.key, this.matches, this.title,
+    super.key,
+    this.matches,
+    this.title,
   });
-final Matches? matches;
-final String? title;
+  final Matches? matches;
+  final String? title;
 
   @override
   Widget build(BuildContext context) {
-    var time=matches?.start.toString().substring(8);
-    var formatTime1=time?.split("")[0];
-    var formatTime2=time?.split("")[1];
-    var formatTime3=time?.split("")[2];
-    var formatTime4=time?.split("")[3];
-    var formattedTime="$formatTime1$formatTime2:$formatTime3$formatTime4";
+    var time = matches?.start.toString().substring(8);
+    var formatTime1 = time?.split("")[0];
+    var formatTime2 = time?.split("")[1];
+    var formatTime3 = time?.split("")[2];
+    var formatTime4 = time?.split("")[3];
+    var formattedTime = "$formatTime1$formatTime2:$formatTime3$formatTime4";
     return InkWell(
       onTap: () {
 Get.to(MatchDetailScreen(matchTitle: title??"",matches: matches,));
@@ -30,7 +32,13 @@ Get.to(MatchDetailScreen(matchTitle: title??"",matches: matches,));
         children: [
           SizedBox(
             width: 1.sw * 0.15,
-            child: CustomText(text:matches?.status==1? (formattedTime): matches?.statusTxt??"",),
+            child: CustomText(
+              text: matches?.status == 6
+                  ? "FT"
+                  : matches?.status == 1
+                      ? (formattedTime)
+                      : matches?.statusTxt ?? "",
+            ),
           ),
           Expanded(
             child: Column(
@@ -48,7 +56,7 @@ Get.to(MatchDetailScreen(matchTitle: title??"",matches: matches,));
                         SizedBox(
                           width: 10.w,
                         ),
-                         CustomText(text: '${matches?.teams?[0].name}'),
+                        CustomText(text: '${matches?.teams?[0].name}'),
                       ],
                     ),
                     CustomText(text: matches?.status==1?  '-':"${matches?.score?[0].toString()}",),
@@ -67,10 +75,13 @@ Get.to(MatchDetailScreen(matchTitle: title??"",matches: matches,));
                         SizedBox(
                           width: 10.w,
                         ),
-                         CustomText(text: '${matches?.teams?[1].name}')
+                        CustomText(text: '${matches?.teams?[1].name}')
                       ],
                     ),
-                    CustomText(text: matches?.status==1?  '-':"${matches?.score?[1].toString()}"),
+                    CustomText(
+                        text: matches?.status == 1
+                            ? '-'
+                            : "${matches?.score?[1].toString()}"),
                   ],
                 ),
               ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hockey_live_score/utils/function.dart';
 
 import '../../../models/match_model.dart';
 import '../../../utils/color_const.dart';
@@ -19,9 +20,14 @@ class ResultWidget extends StatelessWidget {
       itemBuilder: (context, index) {
         return CustomCard(
           widget: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomText(text: matches?[index].cName ?? ''),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomText(text: matches?[index].cName ?? ''),
+                  CustomText(text: getDate((matches?[index].start).toString())),
+                ],
+              ),
               kSizedBoxH5,
               Divider(height: 1.h, color: grey.withOpacity(0.3)),
               kSizedBoxH5,

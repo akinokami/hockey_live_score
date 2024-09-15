@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hockey_live_score/views/screens/team/result_widget.dart';
+import 'package:hockey_live_score/views/screens/team/squard_widget.dart';
 import 'package:hockey_live_score/views/screens/team/upcoming_widget.dart';
 import 'package:hockey_live_score/views/widgets/custom_loading.dart';
 
@@ -17,7 +18,7 @@ class TeamScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final teamController = Get.put(TeamController());
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         backgroundColor: primaryColor,
         appBar: AppBar(
@@ -48,15 +49,12 @@ class TeamScreen extends StatelessWidget {
                             size: 40.sp,
                             color: Colors.white,
                           ),
-                          kSizedBoxW5,
+                          kSizedBoxH5,
                           CustomText(
-                            text: 'TEAM NAME'.tr,
+                            text: teamController.team.value.name ?? "",
                             color: Colors.white,
                           ),
-                          CustomText(
-                            text: 'NHL'.tr,
-                            color: Colors.white,
-                          ),
+                          kSizedBoxH5,
                           TabBar(
                             unselectedLabelColor: Colors.white,
                             indicatorColor: Colors.white,
@@ -66,6 +64,7 @@ class TeamScreen extends StatelessWidget {
                             tabs: [
                               Tab(text: 'upcoming_matches'.tr),
                               Tab(text: 'results'.tr),
+                              Tab(text: 'squad'.tr),
                             ],
                           ),
                           SizedBox(
@@ -82,7 +81,11 @@ class TeamScreen extends StatelessWidget {
                           ),
                           ResultWidget(
                             matches: teamController.team.value.results ?? [],
-                          )
+                          ),
+                          SquardWidget(
+                            participants:
+                                teamController.team.value.participants ?? [],
+                          ),
                         ],
                       ),
                     ),
