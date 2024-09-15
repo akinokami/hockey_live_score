@@ -24,7 +24,7 @@ final String? title;
     var formattedTime="$formatTime1$formatTime2:$formatTime3$formatTime4";
     return InkWell(
       onTap: () {
-Get.to(MatchDetailScreen(matchTitle: title??"",));
+Get.to(MatchDetailScreen(matchTitle: title??"",matches: matches,));
       },
       child: Row(
         children: [
@@ -51,7 +51,7 @@ Get.to(MatchDetailScreen(matchTitle: title??"",));
                          CustomText(text: '${matches?.teams?[0].name}'),
                       ],
                     ),
-                    CustomText(text: matches?.status==1?  '-':"${matches?.score?[0].toString()}"),
+                    CustomText(text: matches?.status==1?  '-':"${matches?.score?[0].toString()}",),
                   ],
                 ),
                 Row(
