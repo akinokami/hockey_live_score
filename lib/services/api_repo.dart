@@ -1,4 +1,3 @@
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:hockey_live_score/models/match_detail_model.dart';
 import 'package:hockey_live_score/models/match_model.dart';
 import 'package:hockey_live_score/models/team_model.dart';

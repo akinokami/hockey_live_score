@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hockey_live_score/utils/dimen_const.dart';
-import 'package:hockey_live_score/views/screens/team/team_screen.dart';
 import 'package:hockey_live_score/views/widgets/custom_loading.dart';
 import 'package:hockey_live_score/views/widgets/match_card.dart';
 
 import '../../../controller/match_controller.dart';
 import '../../../utils/color_const.dart';
-import '../../widgets/custom_card.dart';
 import '../../widgets/custom_text.dart';
 
 class MatchScreen extends StatelessWidget {

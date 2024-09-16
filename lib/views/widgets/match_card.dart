@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hockey_live_score/models/match_model.dart';
-import 'package:hockey_live_score/utils/function.dart';
 import 'package:hockey_live_score/views/screens/match/match_detail_screen.dart';
 import 'package:hockey_live_score/views/widgets/custom_text.dart';
 
@@ -27,9 +26,7 @@ class MatchCard extends StatelessWidget {
     var formattedTime = "$formatTime1$formatTime2:$formatTime3$formatTime4";
     return InkWell(
       onTap: () {
-        Get.to(MatchDetailScreen(
-          matchTitle: title ?? "",
-        ));
+Get.to(MatchDetailScreen(matchTitle: title??"",matches: matches,));
       },
       child: Row(
         children: [
@@ -64,10 +61,7 @@ class MatchCard extends StatelessWidget {
                         CustomText(text: '${matches?.teams?[0].name}'),
                       ],
                     ),
-                    CustomText(
-                        text: matches?.status == 1
-                            ? '-'
-                            : "${matches?.score?[0].toString()}"),
+                    CustomText(text: matches?.status==1?  '-':"${matches?.score?[0].toString()}",),
                   ],
                 ),
                 Row(
