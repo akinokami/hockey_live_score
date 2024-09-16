@@ -12,7 +12,7 @@ class TeamController extends GetxController {
 
   @override
   void onInit() {
-    teamId.value = "1-65727"; //Get.arguments['teamId'];
+    teamId.value = Get.arguments['teamId'];
     getTeam();
     super.onInit();
   }
