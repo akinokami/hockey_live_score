@@ -101,6 +101,8 @@ class Matches {
   List<int>? l1pScore;
   List<int>? l2pScore;
   List<int>? l3pScore;
+  List<int>? lOScore;
+  List<int>? lPenScore;
   int? highlighted;
   int? canEndWithDraw;
   String? season;
@@ -135,6 +137,8 @@ class Matches {
       this.l1pScore,
       this.l2pScore,
       this.l3pScore,
+      this.lOScore,
+      this.lPenScore,
       this.highlighted,
       this.canEndWithDraw,
       this.season,
@@ -170,10 +174,12 @@ class Matches {
     elapsedT = json['elapsed_t'];
     start = json['start'];
     cov = json['cov'];
-    score =json['score']==null?[]: json['score'].cast<int>();
-    l1pScore = json['1p_score']==null?[]:json['1p_score'].cast<int>();
-    l2pScore =json['2p_score']==null?[]: json['2p_score'].cast<int>();
-    l3pScore =json['3p_score']==null?[]: json['3p_score'].cast<int>();
+    score = json['score'] == null ? [] : json['score'].cast<int>();
+    l1pScore = json['1p_score'] == null ? [] : json['1p_score'].cast<int>();
+    l2pScore = json['2p_score'] == null ? [] : json['2p_score'].cast<int>();
+    l3pScore = json['3p_score'] == null ? [] : json['3p_score'].cast<int>();
+    l3pScore = json['o_score'] == null ? [] : json['o_score'].cast<int>();
+    l3pScore = json['pen_score'] == null ? [] : json['pen_score'].cast<int>();
     highlighted = json['highlighted'];
     canEndWithDraw = json['can_end_with_draw'];
     season = json['season'];
@@ -217,6 +223,8 @@ class Matches {
     data['1p_score'] = l1pScore;
     data['2p_score'] = l2pScore;
     data['3p_score'] = l3pScore;
+    data['o_score'] = lOScore;
+    data['pen_score'] = lPenScore;
     data['highlighted'] = highlighted;
     data['can_end_with_draw'] = canEndWithDraw;
     data['season'] = season;

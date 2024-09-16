@@ -16,7 +16,7 @@ final Matches? matches;
   Widget build(BuildContext context) {
     return DefaultTabController(length: 3, child: Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: primaryColor,
         centerTitle: true,
         title: CustomText(
@@ -175,7 +175,7 @@ final Matches? matches;
               ],
             ),
           ),
-          Expanded(child: TabBarView(
+          const Expanded(child: TabBarView(
             children: [
               CustomText(text: "1",color: Colors.black,),
               CustomText(text: "2",color: Colors.black),
