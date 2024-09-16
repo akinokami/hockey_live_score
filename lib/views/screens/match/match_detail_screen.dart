@@ -7,6 +7,7 @@ import '../../../utils/color_const.dart';
 import '../../../utils/dimen_const.dart';
 import '../../widgets/custom_text.dart';
 import '../team/team_screen.dart';
+import 'info_widget.dart';
 
 class MatchDetailScreen extends StatelessWidget {
   const MatchDetailScreen({super.key, required this.matchTitle, this.matches});
@@ -175,9 +176,9 @@ final Matches? matches;
               ],
             ),
           ),
-          const Expanded(child: TabBarView(
+           Expanded(child: TabBarView(
             children: [
-              CustomText(text: "1",color: Colors.black,),
+              InfoWidget(matches: matches,),
               CustomText(text: "2",color: Colors.black),
               CustomText(text: "3",color: Colors.black),
             ],
