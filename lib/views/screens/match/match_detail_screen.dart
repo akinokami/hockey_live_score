@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:hockey_live_score/controller/match_controller.dart';
 import 'package:hockey_live_score/models/match_model.dart';
-
+import 'package:hockey_live_score/views/screens/match/h2h_widget.dart';
 import '../../../utils/color_const.dart';
 import '../../../utils/dimen_const.dart';
 import '../../widgets/custom_text.dart';
@@ -17,7 +16,7 @@ class MatchDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 3,
+        length: 2,
         child: Scaffold(
           appBar: AppBar(
             iconTheme: const IconThemeData(color: Colors.white),
@@ -174,9 +173,7 @@ class MatchDetailScreen extends StatelessWidget {
                     Tab(
                       text: 'info'.tr,
                     ),
-                    Tab(
-                      text: 'standing'.tr,
-                    ),
+
                     Tab(
                       text: 'h2h'.tr,
                     ),
@@ -189,8 +186,7 @@ class MatchDetailScreen extends StatelessWidget {
                   InfoWidget(
                     matches: matches,
                   ),
-                  CustomText(text: "2", color: Colors.black),
-                  CustomText(text: "3", color: Colors.black),
+                  H2HWidget()
                 ],
               ))
             ],
