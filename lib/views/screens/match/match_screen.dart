@@ -8,6 +8,7 @@ import 'package:hockey_live_score/views/widgets/match_card.dart';
 import '../../../controller/match_controller.dart';
 import '../../../utils/color_const.dart';
 import '../../widgets/custom_text.dart';
+import '../search/search_screen.dart';
 
 class MatchScreen extends StatelessWidget {
   const MatchScreen({super.key});
@@ -29,17 +30,17 @@ class MatchScreen extends StatelessWidget {
           ),
         ),
         actions: [
-          // IconButton(
-          //   onPressed: () async {
-          //     // Get.to(() => const SearchScreen(), arguments: {
-          //     //   'matches': matchController.matches,
-          //     // });
-          //   },
-          //   icon: Icon(
-          //     Icons.search,
-          //     color: secondaryColor,
-          //   ),
-          // ),
+          IconButton(
+            onPressed: () async {
+              Get.to(() => const SearchScreen(), arguments: {
+                'matches': matchController.matches,
+              });
+            },
+            icon: Icon(
+              Icons.search,
+              color: secondaryColor,
+            ),
+          ),
           IconButton(
             onPressed: () async {
               DateTime? picked = await showDatePicker(

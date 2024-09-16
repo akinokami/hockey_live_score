@@ -4,6 +4,7 @@ import 'package:hockey_live_score/models/match_model.dart';
 
 import '../../../utils/color_const.dart';
 import '../../../utils/dimen_const.dart';
+import '../../../utils/function.dart';
 import '../../widgets/custom_card.dart';
 import '../../widgets/custom_text.dart';
 import '../../widgets/match_card.dart';
@@ -21,7 +22,15 @@ class UpcomingWidget extends StatelessWidget {
           widget: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomText(text: matches?[index].cName ?? ''),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomText(
+                      text:
+                          "${matches?[index].cName ?? ''} - ${matches?[index].stName ?? ''}"),
+                  CustomText(text: getDate((matches?[index].start).toString())),
+                ],
+              ),
               kSizedBoxH5,
               Divider(height: 1.h, color: grey.withOpacity(0.3)),
               kSizedBoxH5,

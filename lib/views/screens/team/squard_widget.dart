@@ -22,7 +22,7 @@ class SquardWidget extends StatelessWidget {
             widget: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomText(text: 'player'.tr),
+              CustomText(text: 'players'.tr),
               kSizedBoxH5,
               Divider(height: 1.h, color: grey.withOpacity(0.3)),
               kSizedBoxH5,

@@ -56,10 +56,10 @@ class CustomTextFormField extends StatelessWidget {
       obscureText: obscureText ?? false,
       onChanged: onChange,
       keyboardType: keyBoardType ?? TextInputType.text,
-      style: TextStyle(color: textColor ?? Colors.black, fontSize: 12),
+      style: TextStyle(color: textColor ?? Colors.white, fontSize: 12),
       decoration: InputDecoration(
           filled: true,
-          fillColor: Colors.white,
+          fillColor: cardColor,
           contentPadding:
               const EdgeInsets.symmetric(vertical: 4.0, horizontal: 10.0),
           errorStyle: TextStyle(color: red),

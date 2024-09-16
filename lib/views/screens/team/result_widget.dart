@@ -24,7 +24,9 @@ class ResultWidget extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CustomText(text: matches?[index].cName ?? ''),
+                  CustomText(
+                      text:
+                          "${matches?[index].cName ?? ''} - ${matches?[index].stName ?? ''}"),
                   CustomText(text: getDate((matches?[index].start).toString())),
                 ],
               ),
