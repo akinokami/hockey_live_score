@@ -178,8 +178,8 @@ class Matches {
     l1pScore = json['1p_score'] == null ? [] : json['1p_score'].cast<int>();
     l2pScore = json['2p_score'] == null ? [] : json['2p_score'].cast<int>();
     l3pScore = json['3p_score'] == null ? [] : json['3p_score'].cast<int>();
-    l3pScore = json['o_score'] == null ? [] : json['o_score'].cast<int>();
-    l3pScore = json['pen_score'] == null ? [] : json['pen_score'].cast<int>();
+    lOScore = json['o_score'] == null ? [] : json['o_score'].cast<int>();
+    lPenScore = json['pen_score'] == null ? [] : json['pen_score'].cast<int>();
     highlighted = json['highlighted'];
     canEndWithDraw = json['can_end_with_draw'];
     season = json['season'];

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hockey_live_score/controller/match_controller.dart';
 import 'package:hockey_live_score/models/match_model.dart';
 
 import '../../../utils/color_const.dart';
@@ -15,6 +16,7 @@ final String matchTitle;
 final Matches? matches;
   @override
   Widget build(BuildContext context) {
+    final matchController = Get.put(MatchController());
     return DefaultTabController(length: 3, child: Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
@@ -76,7 +78,7 @@ final Matches? matches;
                     SizedBox(
                       width: 100.w,
                       height: 70.h,
-                      child: (matches?.score != null)
+                      child: (matches?.status != 1)
                           ? Center(
                             child: CustomText(
                       fontSize: 14.sp,

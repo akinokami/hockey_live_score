@@ -18,6 +18,10 @@ class HiLanguage {
     'live': 'लाइव',
     'results': 'परिणाम',
     'squad': 'दस्ता',
-    'players': 'खिलाड़ी'
+    'players': 'खिलाड़ी',
+    'soon': 'जल्द ही आ रहा है',
+    'info': 'जानकारी',
+    'standing': 'स्थिति',
+    'h2h': 'H2H'
   };
 }

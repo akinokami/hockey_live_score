@@ -18,6 +18,10 @@ class ViLanguage {
     'live': 'Trực tiếp',
     'results': 'Kết quả',
     'squad': 'Đội hình',
-    'players': 'Người chơi'
+    'players': 'Người chơi',
+    'soon': 'Sắp ra mắt',
+    'info': 'Thông tin',
+    'standing': 'Xếp hạng',
+    'h2h': 'H2H'
   };
 }

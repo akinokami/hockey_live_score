@@ -18,6 +18,10 @@ class EnLanguage {
     'live': 'Live',
     'results': 'Results',
     'squad': 'Squad',
-    'players': 'Players'
+    'players': 'Players',
+    'soon': 'Coming Soon',
+    'info': 'Info',
+    'standing':'Standing',
+    'h2h':'H2H'
   };
 }

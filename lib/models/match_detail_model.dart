@@ -8,11 +8,11 @@ MatchDetailsModel matchDetailsModelFromJson(String str) => MatchDetailsModel.fro
 
 String matchDetailsModelToJson(MatchDetailsModel data) => json.encode(data.toJson());
 
-class Form {
+class FormTeamData {
   String? id;
   String? name;
   int? gender;
-  Cid? cid;
+  dynamic cid;
   Cname? cname;
   Cflag? cflag;
   int? pos;
@@ -21,7 +21,7 @@ class Form {
   List<FormsText>? formsText;
   List<MatchDetailsModel>? results;
 
-  Form({
+  FormTeamData({
     this.id,
     this.name,
     this.gender,
@@ -35,13 +35,13 @@ class Form {
     this.results,
   });
 
-  factory Form.fromJson(Map<String, dynamic> json) => Form(
+  factory FormTeamData.fromJson(Map<String, dynamic> json) => FormTeamData(
     id: json["id"],
     name: json["name"],
     gender: json["gender"],
-    cid: cidValues.map[json["cid"]]!,
-    cname: cnameValues.map[json["cname"]]!,
-    cflag: cflagValues.map[json["cflag"]]!,
+    cid: json["cid"] ?? "",
+    cname: cnameValues.map[json["cname"]],
+    cflag: cflagValues.map[json["cflag"]],
     pos: json["pos"],
     idx: json["idx"],
     kn: json["kn"],
@@ -67,7 +67,7 @@ class Form {
 class MatchDetailsModel {
   int? pid;
   int? sId;
-  SCode? sCode;
+
   String? cId;
   CName? cName;
   CFlag? cFlag;
@@ -98,7 +98,7 @@ class MatchDetailsModel {
   int? noScorers;
   List<Team>? teams;
   int? hasIncs;
-  List<Form>? forms;
+  List<FormTeamData>? formsTeamData;
   List<Lte>? lte;
   Wh2H? wh2H;
   List<int>? oScore;
@@ -107,7 +107,6 @@ class MatchDetailsModel {
   MatchDetailsModel({
     this.pid,
     this.sId,
-    this.sCode,
     this.cId,
     this.cName,
     this.cFlag,
@@ -138,7 +137,7 @@ class MatchDetailsModel {
     this.noScorers,
     this.teams,
     this.hasIncs,
-    this.forms,
+    this.formsTeamData,
     this.lte,
     this.wh2H,
     this.oScore,
@@ -148,17 +147,16 @@ class MatchDetailsModel {
   factory MatchDetailsModel.fromJson(Map<String, dynamic> json) => MatchDetailsModel(
     pid: json["pid"],
     sId: json["s_id"],
-    sCode: sCodeValues.map[json["s_code"]]!,
     cId: json["c_id"],
-    cName: cNameValues.map[json["c_name"]]!,
-    cFlag: cFlagValues.map[json["c_flag"]]!,
+    cName: cNameValues.map[json["c_name"]],
+    cFlag:json["c_flag"]==null? "" :json["c_flag"]??"",
     stId: json["st_id"],
-    stName: stNameValues.map[json["st_name"]]!,
+    stName:json["st_name"]==null? "" : json["st_name"]??"",
     format: json["format"],
     id: json["id"],
     pids: json["pids"] == null ? [] : List<Pid>.from(json["pids"]!.map((x) => Pid.fromJson(x))),
     ut: json["ut"],
-    statusTxt: statusTxtValues.map[json["status_txt"]]!,
+    statusTxt:json["status_txt"]==null? "" : json["status_txt"]??"",
     status: json["status"],
     pStatus: json["p_status"],
     oStatus: json["o_status"],
@@ -179,7 +177,7 @@ class MatchDetailsModel {
     noScorers: json["noScorers"],
     teams: json["teams"] == null ? [] : List<Team>.from(json["teams"]!.map((x) => Team.fromJson(x))),
     hasIncs: json["has_incs"],
-    forms: json["forms"] == null ? [] : List<Form>.from(json["forms"]!.map((x) => Form.fromJson(x))),
+    formsTeamData: json["forms"] == null ? [] : List<FormTeamData>.from(json["forms"]!.map((x) => FormTeamData.fromJson(x))),
     lte: json["lte"] == null ? [] : List<Lte>.from(json["lte"]!.map((x) => Lte.fromJson(x))),
     wh2H: json["wh2h"] == null ? null : Wh2H.fromJson(json["wh2h"]),
     oScore: json["o_score"] == null ? [] : List<int>.from(json["o_score"]!.map((x) => x)),
@@ -189,7 +187,6 @@ class MatchDetailsModel {
   Map<String, dynamic> toJson() => {
     "pid": pid,
     "s_id": sId,
-    "s_code": sCodeValues.reverse[sCode],
     "c_id": cId,
     "c_name": cNameValues.reverse[cName],
     "c_flag": cFlagValues.reverse[cFlag],
@@ -220,7 +217,7 @@ class MatchDetailsModel {
     "noScorers": noScorers,
     "teams": teams == null ? [] : List<dynamic>.from(teams!.map((x) => x.toJson())),
     "has_incs": hasIncs,
-    "forms": forms == null ? [] : List<dynamic>.from(forms!.map((x) => x.toJson())),
+    "forms": formsTeamData == null ? [] : List<dynamic>.from(formsTeamData!.map((x) => x.toJson())),
     "lte": lte == null ? [] : List<dynamic>.from(lte!.map((x) => x.toJson())),
     "wh2h": wh2H?.toJson(),
     "o_score": oScore == null ? [] : List<dynamic>.from(oScore!.map((x) => x)),
