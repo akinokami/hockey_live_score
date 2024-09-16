@@ -16,5 +16,8 @@ class HiLanguage {
     'please_wait': 'कृपया प्रतीक्षा करें',
     'no_data': 'कोई डेटा उपलब्ध नहीं है',
     'live': 'लाइव',
+    'results': 'परिणाम',
+    'squad': 'दस्ता',
+    'players': 'खिलाड़ी'
   };
 }

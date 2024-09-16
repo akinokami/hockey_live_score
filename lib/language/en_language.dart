@@ -16,5 +16,8 @@ class EnLanguage {
     'please_wait': 'Please wait',
     'no_data': 'No data found',
     'live': 'Live',
+    'results': 'Results',
+    'squad': 'Squad',
+    'players': 'Players'
   };
 }
