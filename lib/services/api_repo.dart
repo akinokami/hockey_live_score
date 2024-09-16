@@ -1,3 +1,4 @@
+import 'package:hockey_live_score/models/h2h_model.dart';
 import 'package:hockey_live_score/models/match_detail_model.dart';
 import 'package:hockey_live_score/models/match_model.dart';
 import 'package:hockey_live_score/models/team_model.dart';
@@ -87,6 +88,21 @@ class ApiRepo {
       }
       final matches = response.data as List;
       return matches.map((item) => MatchModel.fromJson(item)).toList();
+    } catch (e) {
+      throw CustomException(e.toString());
+    }
+  }
+
+
+
+  /// Head to Head
+  Future<H2HModel> getHeadToHead(String t1,String t2) async {
+    try {
+      final response = await apiUtils.get(
+          url: "${ApiConstant.baseUrl}v1/en/match/h2h/ice_hockey/1/$t1/$t2",
+         );
+      final h2hData = response.data;
+      return H2HModel.fromJson(h2hData);
     } catch (e) {
       throw CustomException(e.toString());
     }
