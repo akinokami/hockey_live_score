@@ -16,5 +16,8 @@ class ViLanguage {
     'please_wait': 'Vui lòng đợi',
     'no_data': 'Không có dữ liệu',
     'live': 'Trực tiếp',
+    'results': 'Kết quả',
+    'squad': 'Đội hình',
+    'players': 'Người chơi'
   };
 }

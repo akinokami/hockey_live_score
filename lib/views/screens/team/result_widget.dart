@@ -33,7 +33,7 @@ class ResultWidget extends StatelessWidget {
               kSizedBoxH5,
               MatchCard(
                 matches: matches?[index],
-              )
+              ),
             ],
           ),
         );

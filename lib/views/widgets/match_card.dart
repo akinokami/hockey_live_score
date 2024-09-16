@@ -33,11 +33,13 @@ Get.to(MatchDetailScreen(matchTitle: title??"",matches: matches,));
           SizedBox(
             width: 1.sw * 0.15,
             child: CustomText(
-              text: matches?.status == 6
+              text: matches?.status == 70
                   ? "FT"
-                  : matches?.status == 1
-                      ? (formattedTime)
-                      : matches?.statusTxt ?? "",
+                  : matches?.status == 6
+                      ? "FT"
+                      : matches?.status == 1
+                          ? (formattedTime)
+                          : matches?.statusTxt ?? "",
             ),
           ),
           Expanded(

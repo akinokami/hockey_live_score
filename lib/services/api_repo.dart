@@ -12,10 +12,10 @@ class ApiRepo {
 
   /// Matches
   Future<List<MatchModel>> getMatches(String date) async {
-    var tDate = "${date}T04:00:00";
+    var tDate = "${date}T15:59:59";
     DateTime fromDateTime = DateTime.parse(tDate);
     DateTime fTime = fromDateTime.subtract(const Duration(days: 1));
-    var fromDate = "${DateFormat('yyyy-MM-dd').format(fTime)}T03:59:59";
+    var fromDate = "${DateFormat('yyyy-MM-dd').format(fTime)}T16:00:00";
     try {
       final response = await apiUtils.get(
           url:
@@ -82,7 +82,10 @@ class ApiRepo {
             "oddsPresentationConfigsId": "BETWAY_AFRICA_APP_PLAIN_1X2_V2",
             "oddsProviderIds": 11
           });
-      final matches = response.data['matches'] as List;
+      if (response.data == "[]") {
+        return [];
+      }
+      final matches = response.data as List;
       return matches.map((item) => MatchModel.fromJson(item)).toList();
     } catch (e) {
       throw CustomException(e.toString());

@@ -62,7 +62,7 @@ class TeamScreen extends StatelessWidget {
                             labelColor: Colors.white,
                             indicatorSize: TabBarIndicatorSize.tab,
                             tabs: [
-                              Tab(text: 'upcoming_matches'.tr),
+                              Tab(text: 'matches'.tr),
                               Tab(text: 'results'.tr),
                               Tab(text: 'squad'.tr),
                             ],
