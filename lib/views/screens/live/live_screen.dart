@@ -44,20 +44,11 @@ class LiveScreen extends StatelessWidget {
                         itemBuilder: (context, index) {
                           return CustomCard(
                             widget: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.sports_hockey,
-                                      size: 18.sp,
-                                      color: secondaryColor,
-                                    ),
-                                    SizedBox(
-                                      width: 10.w,
-                                    ),
-                                    const CustomText(text: 'KHL')
-                                  ],
-                                ),
+                                CustomText(
+                                    text:
+                                        "${liveController.live[index].cName ?? ''} - ${liveController.live[index].stName ?? ''}"),
                                 kSizedBoxH5,
                                 Divider(
                                     height: 1.h, color: grey.withOpacity(0.3)),
@@ -67,9 +58,13 @@ class LiveScreen extends StatelessWidget {
                                     itemCount: liveController
                                         .live[index].matches?.length,
                                     itemBuilder: (context, index1) {
-                                      return MatchCard(
-                                        matches: liveController
-                                            .live[index].matches?[index1],
+                                      return Padding(
+                                        padding: EdgeInsets.only(
+                                            top: 3.h, bottom: 3.h),
+                                        child: MatchCard(
+                                          matches: liveController
+                                              .live[index].matches?[index1],
+                                        ),
                                       );
                                     }),
                               ],

@@ -34,14 +34,34 @@ class MatchCard extends StatelessWidget {
         children: [
           SizedBox(
             width: 1.sw * 0.15,
-            child: CustomText(
-              text: matches?.status == 70
-                  ? "FT"
-                  : matches?.status == 6
+            child: Row(
+              children: [
+                Visibility(
+                  visible: matches?.status == 46 ||
+                      matches?.status == 47 ||
+                      matches?.status == 48 ||
+                      matches?.status == 61,
+                  child: Padding(
+                    padding: EdgeInsets.only(right: 5.w),
+                    child: Icon(
+                      Icons.circle,
+                      color: secondaryColor,
+                      size: 10.sp,
+                    ),
+                  ),
+                ),
+                CustomText(
+                  text: matches?.status == 70
                       ? "FT"
-                      : matches?.status == 1
-                          ? getTime(matches?.start.toString() ?? "")
-                          : matches?.statusTxt ?? "",
+                      : matches?.status == 6
+                          ? "FT"
+                          : matches?.status == 13
+                              ? "FT"
+                              : matches?.status == 1
+                                  ? getTime(matches?.start.toString() ?? "")
+                                  : matches?.statusTxt ?? "",
+                ),
+              ],
             ),
           ),
           Expanded(
