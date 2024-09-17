@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Global.language = LocalStorage.instance.read(StorageKey.language.name) ??
-        Language.vi.name;
+        Language.zh.name;
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,
@@ -36,12 +36,13 @@ class MyApp extends StatelessWidget {
           // darkTheme: CustomTheme.darkTheme,
           // themeMode: ThemeMode.system,
           translations: Languages(),
-          locale: Global.language == Language.vi.name
+          locale: Global.language == Language.zh.name
+              ? const Locale('zh', 'CN'):Global.language == Language.vi.name
               ? const Locale('vi', 'VN')
               : Global.language == Language.hi.name
                   ? const Locale('hi', 'IN')
                   : const Locale('en', 'US'),
-          fallbackLocale: const Locale('vi', 'VN'),
+          fallbackLocale: const Locale('zh', 'CN'),
           home: const SplashScreen(),
           debugShowCheckedModeBanner: false,
         );

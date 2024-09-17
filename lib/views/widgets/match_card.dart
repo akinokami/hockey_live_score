@@ -23,11 +23,11 @@ class MatchCard extends StatelessWidget {
     final matchController = Get.put(MatchController());
     return InkWell(
       onTap: () {
-        matchController.getH2HData(matches?.teams?[0].id.toString() ?? "",
-            matches?.teams?[1].id.toString() ?? "");
+
         Get.to(MatchDetailScreen(
           matchTitle: title ?? "",
           matches: matches,
+          h2hModel: matchController.h2hData.value,
         ));
       },
       child: Row(

@@ -76,6 +76,45 @@ class ChangeLanguageScreen extends StatelessWidget {
                   ),
                 ),
                 Obx(
+                      () => GestureDetector(
+                    onTap: () {
+                      languageController.changeLanguage("zh", "CN");
+                    },
+                    child: CustomCard(
+                      widget: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Image.asset(
+                                "assets/images/china.webp",
+                                width: 20.w,
+                                height: 20.h,
+                              ),
+                              SizedBox(
+                                width: 10.w,
+                              ),
+                              const CustomText(
+                                text: "中國人",
+                              )
+                            ],
+                          ),
+                          Icon(
+                            languageController.language.value ==
+                                Language.zh.name
+                                ? Icons.check_circle
+                                : Icons.check_circle_outline,
+                            color: languageController.language.value ==
+                                Language.zh.name
+                                ? secondaryColor
+                                : grey,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Obx(
                   () => GestureDetector(
                     onTap: () {
                       languageController.changeLanguage("vi", "VN");

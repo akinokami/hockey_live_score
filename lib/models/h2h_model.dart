@@ -44,10 +44,10 @@ class Match {
   int? sId;
   int? pid;
   String? id;
-  String? cId;
-  CName? cName;
-  String? stId;
-  StName? stName;
+ // String? cId;
+  String? cName;
+ // String? stId;
+  String? stName;
   int? gid;
   String? season;
   List<Team>? teams;
@@ -60,7 +60,7 @@ class Match {
   List<int>? the1PScore;
   List<int>? the2PScore;
   List<int>? the3PScore;
-  int? highlighted;
+ // int? highlighted;
   List<int>? oScore;
   List<int>? penScore;
 
@@ -68,9 +68,9 @@ class Match {
     this.sId,
     this.pid,
     this.id,
-    this.cId,
+   // this.cId,
     this.cName,
-    this.stId,
+   // this.stId,
     this.stName,
     this.gid,
     this.season,
@@ -84,7 +84,7 @@ class Match {
     this.the1PScore,
     this.the2PScore,
     this.the3PScore,
-    this.highlighted,
+   // this.highlighted,
     this.oScore,
     this.penScore,
   });
@@ -93,10 +93,10 @@ class Match {
     sId: json["s_id"],
     pid: json["pid"],
     id: json["id"],
-    cId: json["c_id"],
-    cName: cNameValues.map[json["c_name"]]!,
-    stId: json["st_id"],
-    stName: stNameValues.map[json["st_name"]]!,
+   // cId: json["c_id"],
+    cName:json["c_name"]??"",
+   // stId: json["st_id"],
+    stName: json["st_name"]??"",
     gid: json["gid"],
     season: json["season"],
     teams: json["teams"] == null ? [] : List<Team>.from(json["teams"]!.map((x) => Team.fromJson(x))),
@@ -109,7 +109,7 @@ class Match {
     the1PScore: json["1p_score"] == null ? [] : List<int>.from(json["1p_score"]!.map((x) => x)),
     the2PScore: json["2p_score"] == null ? [] : List<int>.from(json["2p_score"]!.map((x) => x)),
     the3PScore: json["3p_score"] == null ? [] : List<int>.from(json["3p_score"]!.map((x) => x)),
-    highlighted: json["highlighted"],
+   // highlighted: json["highlighted"],
     oScore: json["o_score"] == null ? [] : List<int>.from(json["o_score"]!.map((x) => x)),
     penScore: json["pen_score"] == null ? [] : List<int>.from(json["pen_score"]!.map((x) => x)),
   );
@@ -118,13 +118,13 @@ class Match {
     "s_id": sId,
     "pid": pid,
     "id": id,
-    "c_id": cId,
-    "c_name": cNameValues.reverse[cName],
-    "st_id": stId,
-    "st_name": stNameValues.reverse[stName],
+    //"c_id": cId,
+    "c_name": cName,
+    //"st_id": stId,
+    "st_name": stName,
     "gid": gid,
     "season": season,
-    "teams": teams == null ? [] : List<dynamic>.from(teams!.map((x) => x.toJson())),
+    //"teams": teams == null ? [] : List<dynamic>.from(teams!.map((x) => x.toJson())),
     "start": start,
     "a_start": aStart,
     "status": status,
@@ -134,7 +134,7 @@ class Match {
     "1p_score": the1PScore == null ? [] : List<dynamic>.from(the1PScore!.map((x) => x)),
     "2p_score": the2PScore == null ? [] : List<dynamic>.from(the2PScore!.map((x) => x)),
     "3p_score": the3PScore == null ? [] : List<dynamic>.from(the3PScore!.map((x) => x)),
-    "highlighted": highlighted,
+    //"highlighted": highlighted,
     "o_score": oScore == null ? [] : List<dynamic>.from(oScore!.map((x) => x)),
     "pen_score": penScore == null ? [] : List<dynamic>.from(penScore!.map((x) => x)),
   };
@@ -145,10 +145,10 @@ enum CName {
   RUSSIA
 }
 
-final cNameValues = EnumValues({
-  "KHL": CName.KHL,
-  "Russia": CName.RUSSIA
-});
+// final cNameValues = EnumValues({
+//   "KHL": CName.KHL,
+//   "Russia": CName.RUSSIA
+// });
 
 enum StName {
   KHL,
@@ -161,8 +161,8 @@ final stNameValues = EnumValues({
 });
 
 class Team {
-  Id? id;
-  Name? name;
+  String? id;
+  String? name;
   int? pos;
 
   Team({
@@ -172,37 +172,37 @@ class Team {
   });
 
   factory Team.fromJson(Map<String, dynamic> json) => Team(
-    id: idValues.map[json["id"]]!,
-    name: nameValues.map[json["name"]]!,
+    id: json["id"]??"",
+    name: json["name"]??"",
     pos: json["pos"],
   );
 
   Map<String, dynamic> toJson() => {
-    "id": idValues.reverse[id],
-    "name": nameValues.reverse[name],
+    "id": id,
+    "name": name,
     "pos": pos,
   };
 }
 
-enum Id {
-  THE_165724,
-  THE_165731
-}
+// enum Id {
+//   THE_165724,
+//   THE_165731
+// }
+//
+// final idValues = EnumValues({
+//   "1-65724": Id.THE_165724,
+//   "1-65731": Id.THE_165731
+// });
 
-final idValues = EnumValues({
-  "1-65724": Id.THE_165724,
-  "1-65731": Id.THE_165731
-});
-
-enum Name {
-  BARYS_NUR_SULTAN,
-  DINAMO_MINSK
-}
-
-final nameValues = EnumValues({
-  "Barys Nur-Sultan": Name.BARYS_NUR_SULTAN,
-  "Dinamo Minsk": Name.DINAMO_MINSK
-});
+// enum Name {
+//   BARYS_NUR_SULTAN,
+//   DINAMO_MINSK
+// }
+//
+// final nameValues = EnumValues({
+//   "Barys Nur-Sultan": Name.BARYS_NUR_SULTAN,
+//   "Dinamo Minsk": Name.DINAMO_MINSK
+// });
 
 class EnumValues<T> {
   Map<String, T> map;

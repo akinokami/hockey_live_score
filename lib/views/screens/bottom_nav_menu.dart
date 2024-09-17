@@ -55,7 +55,9 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
                                   child: WebViewWidget(
                                       controller: WebViewController()
                                         ..loadHtmlString(
-                                            Global.language == Language.vi.name
+                                            Global.language == Language.zh.name
+                                                ? Global.policyZh
+                                                : Global.language == Language.vi.name
                                                 ? Global.policyVi
                                                 : Global.language ==
                                                         Language.hi.name

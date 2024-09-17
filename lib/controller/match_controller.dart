@@ -63,10 +63,11 @@ class MatchController extends GetxController {
   Future<void> getH2HData(String team1,String team2) async {
 
     isLoading.value = true;
+
     try {
       final result = await ApiRepo().getHeadToHead(team1,team2);
       h2hData.value = result;
-
+      isLoading.value = false;
     } catch (e) {
       constants.showSnackBar(title: 'Error', msg: e.toString(), textColor: red);
     } finally {
