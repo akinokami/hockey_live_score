@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:get/get.dart';
 
 import '../models/match_model.dart';
@@ -12,6 +14,9 @@ class LiveController extends GetxController {
   @override
   void onInit() {
     getLive();
+    Timer.periodic(const Duration(minutes: 1), ((timer) async {
+      getLiveMatches();
+    }));
     super.onInit();
   }
 
@@ -24,6 +29,15 @@ class LiveController extends GetxController {
       constants.showSnackBar(title: 'Error', msg: e.toString(), textColor: red);
     } finally {
       isLoading.value = false;
+    }
+  }
+
+  Future<void> getLiveMatches() async {
+    try {
+      final result = await ApiRepo().getLive();
+      live.value = result;
+    } catch (e) {
+      // constants.showSnackBar(title: 'Error', msg: e.toString(), textColor: red);
     }
   }
 }
