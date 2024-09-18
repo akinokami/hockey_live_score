@@ -21,7 +21,9 @@ class ZhLanguage {
     'players': '玩家',
     'soon': '即將推出',
     'info': '資訊',
-    'standing':'常設',
-    'h2h':'H2H'
+    'standing': '常設',
+    'h2h': 'H2H',
+    'news': '訊息',
+    'no_live': '沒有現場比賽。',
   };
 }

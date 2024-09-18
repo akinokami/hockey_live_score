@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hockey_live_score/utils/enum.dart';
 import 'package:hockey_live_score/views/screens/live/live_screen.dart';
 import 'package:hockey_live_score/views/screens/match/match_screen.dart';
+import 'package:hockey_live_score/views/screens/news/news_screen.dart';
 import 'package:hockey_live_score/views/screens/settings/setting_screen.dart';
 import 'package:hockey_live_score/views/widgets/custom_text.dart';
 import 'package:get/get.dart';
@@ -57,12 +58,13 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
                                         ..loadHtmlString(
                                             Global.language == Language.zh.name
                                                 ? Global.policyZh
-                                                : Global.language == Language.vi.name
-                                                ? Global.policyVi
                                                 : Global.language ==
-                                                        Language.hi.name
-                                                    ? Global.policyHi
-                                                    : Global.policyEn))),
+                                                        Language.vi.name
+                                                    ? Global.policyVi
+                                                    : Global.language ==
+                                                            Language.hi.name
+                                                        ? Global.policyHi
+                                                        : Global.policyEn))),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -137,9 +139,7 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
   }
 
   final TextStyle unselectedLabelStyle = TextStyle(
-      color: whiteColor,
-      fontWeight: FontWeight.w500,
-      fontSize: 10.sp);
+      color: whiteColor, fontWeight: FontWeight.w500, fontSize: 10.sp);
 
   final TextStyle selectedLabelStyle = TextStyle(
       color: secondaryColor, fontWeight: FontWeight.w500, fontSize: 10.sp);
@@ -150,7 +150,7 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
           showSelectedLabels: true,
           onTap: bottomNavController.changeTabIndex,
           currentIndex: bottomNavController.tabIndex.value,
-         backgroundColor: primaryColor,
+          backgroundColor: primaryColor,
           unselectedItemColor: whiteColor,
           selectedItemColor: secondaryColor,
           unselectedLabelStyle: unselectedLabelStyle,
@@ -162,7 +162,7 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
                 size: 18.sp,
               ),
               label: 'matches'.tr,
-             // backgroundColor: primaryColor,
+              backgroundColor: primaryColor,
             ),
             BottomNavigationBarItem(
               icon: Icon(
@@ -170,7 +170,15 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
                 size: 18.sp,
               ),
               label: 'live'.tr,
-              //backgroundColor: primaryColor,
+              backgroundColor: primaryColor,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.newspaper,
+                size: 18.sp,
+              ),
+              label: 'news'.tr,
+              backgroundColor: primaryColor,
             ),
             BottomNavigationBarItem(
               icon: Icon(
@@ -178,7 +186,7 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
                 size: 18.sp,
               ),
               label: 'settings'.tr,
-             // backgroundColor: primaryColor,
+              backgroundColor: primaryColor,
             ),
           ],
         ));
@@ -197,6 +205,7 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
             children: const [
               MatchScreen(),
               LiveScreen(),
+              NewScreen(),
               SettingScreen(),
             ],
           )),

@@ -21,7 +21,9 @@ class EnLanguage {
     'players': 'Players',
     'soon': 'Coming Soon',
     'info': 'Info',
-    'standing':'Standing',
-    'h2h':'H2H'
+    'standing': 'Standing',
+    'h2h': 'H2H',
+    'news': 'News',
+    'no_live': 'There is no live matches.',
   };
 }

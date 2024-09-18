@@ -35,7 +35,7 @@ class LiveScreen extends StatelessWidget {
               )
             : liveController.live.isEmpty
                 ? Center(
-                    child: CustomText(text: 'no_data'.tr),
+                    child: CustomText(text: 'no_live'.tr),
                   )
                 : Padding(
                     padding: EdgeInsets.all(5.w),

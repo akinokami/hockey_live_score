@@ -22,6 +22,8 @@ class ViLanguage {
     'soon': 'Sắp ra mắt',
     'info': 'Thông tin',
     'standing': 'Xếp hạng',
-    'h2h': 'H2H'
+    'h2h': 'H2H',
+    'news': 'Tin tức',
+    'no_live': 'Không có trận đấu trực tiếp.',
   };
 }

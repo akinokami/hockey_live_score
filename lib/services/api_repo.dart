@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:hockey_live_score/models/h2h_model.dart';
 import 'package:hockey_live_score/models/match_detail_model.dart';
 import 'package:hockey_live_score/models/match_model.dart';
+import 'package:hockey_live_score/models/news_model.dart';
 import 'package:hockey_live_score/models/team_model.dart';
 import 'package:hockey_live_score/services/api_constant.dart';
 import 'package:hockey_live_score/services/api_utils.dart';
@@ -93,16 +96,31 @@ class ApiRepo {
     }
   }
 
-
-
   /// Head to Head
-  Future<H2HModel> getHeadToHead(String t1,String t2) async {
+  Future<H2HModel> getHeadToHead(String t1, String t2) async {
     try {
       final response = await apiUtils.get(
-          url: "${ApiConstant.baseUrl}v1/en/match/h2h/ice_hockey/1/$t1/$t2",
-         );
+        url: "${ApiConstant.baseUrl}v1/en/match/h2h/ice_hockey/1/$t1/$t2",
+      );
       final h2hData = response.data;
       return H2HModel.fromJson(h2hData);
+    } catch (e) {
+      throw CustomException(e.toString());
+    }
+  }
+
+  /// News
+  Future<List<NewsModel>> getNews() async {
+    try {
+      final response = await apiUtils.get(
+        url:
+            "https://flow.snaptech.dev/api/v1/flow/news/en/ice_hockey/topic/general",
+      );
+      if (response.data == "[]") {
+        return [];
+      }
+      final news = jsonDecode(response.data) as List;
+      return news.map((item) => NewsModel.fromJson(item)).toList();
     } catch (e) {
       throw CustomException(e.toString());
     }

@@ -1,7 +1,7 @@
 import 'package:hockey_live_score/utils/enum.dart';
 
 class Global {
-  static String language = Language.zh.name;
+  static String language = Language.en.name;
 
   static String policyEn = """
 <!DOCTYPE html>
@@ -292,8 +292,7 @@ Thu thập và sử dụng thông tin Để có trải nghiệm tốt hơn, khi 
 </html>
 ''';
 
-  static String policyZh =
-  '''
+  static String policyZh = '''
 <!DOCTYPE html>
 <html lang="en">
 <head>
