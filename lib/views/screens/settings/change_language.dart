@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
 import '../../../controller/language_controller.dart';
-
 import '../../../utils/color_const.dart';
 import '../../../utils/enum.dart';
 import '../../widgets/custom_card.dart';
@@ -21,7 +19,6 @@ class ChangeLanguageScreen extends StatelessWidget {
         backgroundColor: primaryColor,
         elevation: 0,
         centerTitle: true,
-
         iconTheme: const IconThemeData(color: Colors.white),
         title: CustomText(
           text: 'change_language'.tr,
