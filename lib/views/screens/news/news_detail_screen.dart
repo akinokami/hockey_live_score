@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hockey_live_score/models/news_model.dart';
 import 'package:hockey_live_score/utils/dimen_const.dart';
+import 'package:hockey_live_score/views/widgets/custom_card.dart';
 
 import '../../../utils/color_const.dart';
 import '../../widgets/custom_text.dart';
@@ -37,9 +38,11 @@ class NewsDetailScreen extends StatelessWidget {
               fontSize: 14.sp,
             ),
             kSizedBoxH10,
-            CustomText(
-              text: newsModel?.desc ?? '',
-              maxLines: 500,
+            CustomCard(
+              widget: CustomText(
+                text: newsModel?.desc ?? '',
+                maxLines: 500,
+              ),
             ),
           ],
         ),
