@@ -110,19 +110,19 @@ class ApiRepo {
   }
 
   /// News
-  Future<List<NewsModel>> getNews() async {
-    try {
-      final response = await apiUtils.get(
-        url:
-            "https://flow.snaptech.dev/api/v1/flow/news/en/ice_hockey/topic/general",
-      );
-      if (response.data == "[]") {
-        return [];
-      }
-      final news = jsonDecode(response.data) as List;
-      return news.map((item) => NewsModel.fromJson(item)).toList();
-    } catch (e) {
-      throw CustomException(e.toString());
-    }
-  }
+  // Future<List<NewsModel>> getNews() async {
+  //   try {
+  //     final response = await apiUtils.get(
+  //       url:
+  //           "https://flow.snaptech.dev/api/v1/flow/news/en/ice_hockey/topic/general",
+  //     );
+  //     if (response.data == "[]") {
+  //       return [];
+  //     }
+  //     final news = jsonDecode(response.data) as List;
+  //     return news.map((item) => NewsModel.fromJson(item)).toList();
+  //   } catch (e) {
+  //     throw CustomException(e.toString());
+  //   }
+  // }
 }

@@ -44,7 +44,7 @@ class NewScreen extends StatelessWidget {
                       return InkWell(
                         onTap: () {
                           Get.to(() => NewsDetailScreen(
-                                url: newsController.news[index].url ?? '',
+                                newsModel: newsController.news[index],
                               ));
                         },
                         child: CustomCard(
@@ -52,11 +52,13 @@ class NewScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             CustomText(
-                                text: newsController.news[index].title ?? ''),
+                              text: newsController.news[index].title ?? '',
+                              fontWeight: FontWeight.bold,
+                            ),
                             kSizedBoxH5,
                             CustomText(
-                              text: newsController.news[index].text ?? '',
-                              maxLines: 5,
+                              text: newsController.news[index].desc ?? '',
+                              maxLines: 2,
                             ),
                           ],
                         )),
